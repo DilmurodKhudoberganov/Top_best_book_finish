@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/homeScreen">
+
+    <fragment
+        android:id="@+id/homeScreen"
+        android:name="uz.gita.bookappwithfirebase.presentation.ui.screens.HomeScreen"
+        android:label="HomeScreen"
+        tools:layout="@layout/screen_home">
+        <action
+            android:id="@+id/action_homeScreen_to_aboutBookScreen"
+            app:destination="@id/aboutBookScreen" />
+        <action
+            android:id="@+id/action_homeScreen_to_bookReadScreen"
+            app:destination="@id/bookReadScreen" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/aboutBookScreen"
+        android:name="uz.gita.bookappwithfirebase.presentation.ui.screens.AboutBookScreen"
+        android:label="AboutBookScreen"
+        tools:layout="@layout/screen_about_book">
+        <argument
+            android:name="bookData"
+            app:argType="uz.gita.bookappwithfirebase.data.common.BookData"
+            app:nullable="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/savedBooksScreen"
+        android:name="uz.gita.bookappwithfirebase.presentation.ui.screens.SavedBooksScreen"
+        android:label="SavedBooksScreen"
+        tools:layout="@layout/screen_saved">
+        <action
+            android:id="@+id/action_savedBooksScreen_to_bookReadScreen"
+            app:destination="@id/bookReadScreen" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/exploreScreen"
+        android:name="uz.gita.bookappwithfirebase.presentation.ui.screens.ExploreScreen"
+        android:label="HomeScreen"
+        tools:layout="@layout/screen_explore">
+        <action
+            android:id="@+id/action_exploreScreen_to_aboutBookScreen"
+            app:destination="@id/aboutBookScreen" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/bookReadScreen"
+        android:name="uz.gita.bookappwithfirebase.presentation.ui.screens.BookReadScreen"
+        android:label="BookReadScreen"
+        tools:layout="@layout/screen_book_read">
+
+        <argument
+            android:name="bookName"
+            app:argType="string" />
+        <argument
+            android:name="savedPage"
+            app:argType="integer" />
+        <argument
+            android:name="totalPage"
+            app:argType="integer" />
+    </fragment>
+
+</navigation>
